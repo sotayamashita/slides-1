@@ -9,7 +9,9 @@
     "start:frontend-optimize": "webpack-dev-server --hot -d --env.app frontend-optimize",
     "start:webpack2": "webpack-dev-server --hot -d --env.app webpack2",
     "build": "rm -rf build && webpack -p --progress --profile --env.prod && cp -r public/* build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "slides"
@@ -40,9 +42,11 @@
     "react": "^0.13.3",
     "style-loader": "^0.12.4",
     "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.0.0"
+    "webpack-dev-server": "^2.0.0",
+    "snyk": "^1.47.0"
   },
   "devDependencies": {
     "gh-pages": "^0.4.0"
-  }
+  },
+  "snyk": true
 }
